@@ -1,13 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { createClient } from "@supabase/supabase-js";
+import supabase from "@/utils/supabaseClient";
 import Image from "next/image";
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-);
 
 export default function PengajuanKredit() {
   const [formData, setFormData] = useState({
@@ -54,7 +49,13 @@ export default function PengajuanKredit() {
 
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-md">
-      <Image src="/logo.png" alt="BCA Finance" className="w-40 mx-auto mb-4" />
+      <Image
+        src="/logo.png"
+        alt="BCA Finance"
+        width={100}
+        height={100}
+        className="w-40 mx-auto mb-4"
+      />
       <h2 className="text-xl font-bold mb-4 text-center">
         Form Pengajuan Kredit
       </h2>
